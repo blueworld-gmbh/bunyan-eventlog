@@ -1,7 +1,7 @@
 {
   "name": "bunyan-eventlog",
   "version": "0.0.2",
-  "description": "Bunyan stream for Windows Event Logs, using node-windows",
+  "description": "Bunyan stream for Windows Event Logs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,5 @@
   ],
   "author": "Kurt Kincaid <kurt.kincaid@gmail.com>",
   "license": "ISC",
-  "dependencies": {
-    "node-windows": "^0.1.11"
-  }
+  "dependencies": {}
 }

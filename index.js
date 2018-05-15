@@ -4,7 +4,7 @@
  * @version 0.1.0
  */
 
-var evt = require( 'node-windows' ).EventLogger;
+const cp = require( 'child_process' );
 
 /**
  * Main module constructor
@@ -17,10 +17,8 @@ function bunyanEventLog( opts ) {
     opts = opts || {};
     this.eventLog = opts.eventLog || 'APPLICATION';
     this.source = opts.source || 'bunyan-eventLog';
-    this._log = new evt( {
-        'source': this.source,
-        'eventLog': this.eventLog
-    } );
+    this.exclude = opts.exclude || [];
+    this.showExclude = opts.showExclude || false;
 }
 
 /**
@@ -35,27 +33,56 @@ function bunyanEventLog( opts ) {
 bunyanEventLog.prototype.write = function( entry ) {
     var item = JSON.parse( entry );
     var id = item[ 'id' ] || 1000;
-    var del = [ 'id', 'level', 'msg', 'eventLog' ];
     var lvl = item[ 'level' ];
     var msg = item[ 'msg' ];
-    for ( var i in del ) {
-        delete item[ del[ i ] ];
+    var showExclude = item[ 'showExclude' ] || this.showExclude;
+    if ( this.exclude ) {
+        if ( this.exclude === 'all' || item[ 'exclude' ] === 'all' ) {
+            item = {};
+        }
+        else {
+            for ( var i in this.exclude ) {
+                delete item[ this.exclude[ i ] ];
+            }
+            for ( var i in item[ 'exclude' ] ) {
+                delete item[ item[ 'exclude' ][ i ] ];
+            }
+        }
     }
+    if ( ! showExclude ) {
+        delete item[ 'exclude' ];
+    }
+    console.log( JSON.stringify( item, null, 2 ) );
     var arr = [];
-    for ( var i in item ) {
-        arr.push( `${i}: ${item[i]}` );
+    if ( item ) {
+        for ( var i in item ) {
+            arr.push( `${i}: ${item[i]}` );
+        }
     }
-    msg += ' -- ' + arr.join( ', ' );
+    var msg2 = arr.join( '; ' );
+    if ( msg2 ) {
+        msg += ` -- ${msg2}`;
+    }
     id = id > 1000 ? 1000 : id;
+    var level;
     if ( lvl <= 30 ) {
-        this._log.info( msg, id );
+        level = 'INFORMATION';
     }
     else if ( lvl == 40 ) {
-        this._log.warn( msg, id );
+        level = 'WARNING';
     }
     else {
-        this._log.error( msg, id );
+        level = 'ERROR';
     }
+    var cmdString = `eventcreate /so "${this.source}" /t ${level} /id ${id} /l ${this.eventLog} /d "${msg}"`;
+    console.log( cmdString );
+    return null;
+    cp.exec( cmdString, ( error, stdout, stderr ) => {
+        if ( error ) {
+            console.error( `Error executing eventcreate command: ${error}` );
+            return;
+        }
+    } );
 };
 
 module.exports = bunyanEventLog;
