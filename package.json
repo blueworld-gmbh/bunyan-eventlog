@@ -1,6 +1,6 @@
 {
   "name": "bunyan-eventlog",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Bunyan stream for Windows Event Logs",
   "main": "index.js",
   "scripts": {
