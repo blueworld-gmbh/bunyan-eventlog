@@ -13,7 +13,12 @@ export default class WindowsEventLog {
      * The event ID defaults to 1000. A custom event
      * ID must be in the range of 1 - 1000.
      *
-     * @param {Object} entry Raw Bunyan log data
+     * @param {Object} item Raw Bunyan log data
      */
     write(item: any): void;
+    /**
+     * Return a new circular replacer for using within json stringify
+     * this helps stringify circular json structures
+     */
+    private getCircularReplacer;
 }
