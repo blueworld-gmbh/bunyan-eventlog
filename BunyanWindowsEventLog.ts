@@ -1,8 +1,8 @@
 import { EventLogger } from "node-windows";
 
 export interface WindowsEventLogOptions {
-	eventLog: string;
-	source: string;
+	eventLog?: string;
+	source?: string;
 }
 
 const defaultOpts: WindowsEventLogOptions = {
