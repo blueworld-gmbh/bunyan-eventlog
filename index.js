@@ -1,9 +1,3 @@
-/**
- * @fileOverview Bunyan stream for Windows Event Logs
- * @author Kurt Kincaid
- * @version 1.0.1
- */
-
 const cp = require("child_process");
 
 /**

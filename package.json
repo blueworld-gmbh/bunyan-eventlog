@@ -1,6 +1,6 @@
 {
-	"name": "bunyan-eventlog",
-	"version": "1.0.1",
+	"name": "@blueworld/bunyan-eventlog",
+	"version": "1.0.2",
 	"description": "Bunyan stream for Windows Event Logs",
 	"main": "index.js",
 	"scripts": {
@@ -12,7 +12,7 @@
 		"eventlog"
 	],
 	"author": "blueworld GmbH",
-	"license": "ISC",
+	"license": "GPL-3.0-or-later",
 	"dependencies": {},
 	"prettier": {
 		"printWidth": 100,
