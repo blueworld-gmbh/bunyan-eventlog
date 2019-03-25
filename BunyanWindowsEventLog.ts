@@ -33,9 +33,8 @@ export default class WindowsEventLog {
 	 *
 	 * @param {Object} entry Raw Bunyan log data
 	 */
-	public write(entry: any): void {
-		console.log(entry);
-		const item = JSON.parse(entry);
+	public write(item: any): void {
+		if (!item) return;
 
 		let id = item["id"] || 1000;
 		let msg = item["msg"];
