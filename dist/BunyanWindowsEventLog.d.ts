@@ -15,5 +15,5 @@ export default class WindowsEventLog {
      *
      * @param {Object} entry Raw Bunyan log data
      */
-    write(entry: any): void;
+    write(item: any): void;
 }

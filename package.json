@@ -1,6 +1,6 @@
 {
 	"name": "@blueworld/bunyan-windows-eventlog",
-	"version": "2.0.6",
+	"version": "2.0.7",
 	"description": "Bunyan stream for Windows Event Logs",
 	"main": "dist/BunyanWindowsEventLog.js",
 	"typings": "dist/BunyanWindowsEventLog.d.ts",
@@ -9,11 +9,7 @@
 		"test": "ts-node test.ts",
 		"publish": "npm version patch && npm run build && npm publish"
 	},
-	"keywords": [
-		"bunyan",
-		"windows",
-		"eventlog"
-	],
+	"keywords": ["bunyan", "windows", "eventlog"],
 	"author": "blueworld GmbH",
 	"license": "GPL-3.0-or-later",
 	"dependencies": {
