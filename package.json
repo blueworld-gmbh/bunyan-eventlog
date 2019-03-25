@@ -1,19 +1,26 @@
 {
-	"name": "@blueworld/bunyan-eventlog",
-	"version": "1.0.2",
+	"name": "@blueworld/bunyan-windows-eventlog",
+	"version": "2.0.0",
 	"description": "Bunyan stream for Windows Event Logs",
-	"main": "index.js",
+	"main": "dist/BunyanWindowsEventLog.js",
+	"typings": "dist/BunyanWindowsEventLog.d.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "tsc",
+		"test": "ts-node test.ts"
 	},
-	"keywords": [
-		"bunyan",
-		"windows",
-		"eventlog"
-	],
+	"keywords": ["bunyan", "windows", "eventlog"],
 	"author": "blueworld GmbH",
 	"license": "GPL-3.0-or-later",
-	"dependencies": {},
+	"dependencies": {
+		"node-windows": "^0.1.14"
+	},
+	"devDependencies": {
+		"@types/node": "^11.9.4",
+		"bunyan": "^1.8.12",
+		"prettier": "1.10.2",
+		"ts-node": "^8.0.3",
+		"typescript": "^3.3.3"
+	},
 	"prettier": {
 		"printWidth": 100,
 		"useTabs": true,
