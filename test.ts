@@ -20,3 +20,10 @@ logger.info(
 	},
 	"bunyan-eventLog test successful"
 );
+
+const test = {
+	hi: "ho",
+	foo: ["bar"]
+};
+
+logger.warn(test);

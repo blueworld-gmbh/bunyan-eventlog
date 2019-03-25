@@ -1,6 +1,6 @@
 export interface WindowsEventLogOptions {
-    eventLog: string;
-    source: string;
+    eventLog?: string;
+    source?: string;
 }
 export default class WindowsEventLog {
     private options;

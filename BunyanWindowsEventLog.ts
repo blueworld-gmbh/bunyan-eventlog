@@ -34,12 +34,18 @@ export default class WindowsEventLog {
 	 * @param {Object} entry Raw Bunyan log data
 	 */
 	public write(entry: any): void {
+		console.log(entry);
 		const item = JSON.parse(entry);
 
 		let id = item["id"] || 1000;
-		const msg = item["msg"];
+		let msg = item["msg"];
 
 		id = id > 1000 ? 1000 : id;
+
+		// no string or number message, log the whole object
+		if (!msg || msg.length <= 0) {
+			msg = JSON.stringify(item, null, 4);
+		}
 
 		if (item["level"] <= 30) {
 			this.eventLog.info(msg, id);
