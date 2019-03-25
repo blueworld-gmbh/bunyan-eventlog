@@ -1,17 +1,23 @@
 {
-  "name": "bunyan-eventlog",
-  "version": "1.0.1",
-  "description": "Bunyan stream for Windows Event Logs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "bunyan",
-    "windows",
-    "eventlog"
-  ],
-  "author": "Kurt Kincaid <kurt.kincaid@gmail.com>",
-  "license": "ISC",
-  "dependencies": {}
+	"name": "bunyan-eventlog",
+	"version": "1.0.1",
+	"description": "Bunyan stream for Windows Event Logs",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"bunyan",
+		"windows",
+		"eventlog"
+	],
+	"author": "blueworld GmbH",
+	"license": "ISC",
+	"dependencies": {},
+	"prettier": {
+		"printWidth": 100,
+		"useTabs": true,
+		"tabWidth": 4,
+		"arrowParens": "always"
+	}
 }

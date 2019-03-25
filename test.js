@@ -1,20 +1,25 @@
-var bunyan = require( 'bunyan' );
-var bunyanEventLog = require( 'bunyan-eventlog' );
-var _systemLogger = {
-    'src': false,
-    'name': 'systemLogger',
-    'serializers': bunyan.stdSerializers,
-    'streams': [ {
-        'level': 'info',
-        'stream': new bunyanEventLog()
-    } ]
-}
+const bunyan = require("bunyan");
+const bunyanEventLog = require("bunyan-eventlog");
 
-var logger = bunyan.createLogger( _systemLogger );
+const _systemLogger = {
+	src: false,
+	name: "systemLogger",
+	serializers: bunyan.stdSerializers,
+	streams: [
+		{
+			level: "info",
+			stream: new bunyanEventLog()
+		}
+	]
+};
 
-logger.info( {
-    'id': 999,
-    'showExclude': true,
-    'exclude': [ 'time', 'v' ]
-}, 'bunyan-eventLog test successful' );
+const logger = bunyan.createLogger(_systemLogger);
 
+logger.info(
+	{
+		id: 999,
+		showExclude: true,
+		exclude: ["time", "v"]
+	},
+	"bunyan-eventLog test successful"
+);
