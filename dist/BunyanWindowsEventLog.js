@@ -35,10 +35,15 @@ var WindowsEventLog = /** @class */ (function () {
      * @param {Object} entry Raw Bunyan log data
      */
     WindowsEventLog.prototype.write = function (entry) {
+        console.log(entry);
         var item = JSON.parse(entry);
         var id = item["id"] || 1000;
         var msg = item["msg"];
         id = id > 1000 ? 1000 : id;
+        // no string or number message, log the whole object
+        if (!msg || msg.length <= 0) {
+            msg = JSON.stringify(item, null, 4);
+        }
         if (item["level"] <= 30) {
             this.eventLog.info(msg, id);
         }
