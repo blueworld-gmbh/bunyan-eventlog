@@ -1,6 +1,6 @@
 {
 	"name": "@blueworld/bunyan-windows-eventlog",
-	"version": "2.0.9",
+	"version": "2.0.10",
 	"description": "Bunyan stream for Windows Event Logs",
 	"main": "dist/BunyanWindowsEventLog.js",
 	"typings": "dist/BunyanWindowsEventLog.d.ts",

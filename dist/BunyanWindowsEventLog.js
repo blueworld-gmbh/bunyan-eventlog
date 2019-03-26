@@ -55,7 +55,7 @@ var WindowsEventLog = /** @class */ (function () {
             delete item["msg"];
             delete item["time"];
             delete item["v"];
-            console.log(typeof item);
+            delete item["src"];
             // stringify the remaining object, which contains just the object
             // values that should be logged
             msg = JSON.stringify(item, this.getCircularReplacer());

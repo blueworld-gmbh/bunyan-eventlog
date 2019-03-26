@@ -58,8 +58,7 @@ export default class WindowsEventLog {
 			delete item["msg"];
 			delete item["time"];
 			delete item["v"];
-
-			console.log(typeof item);
+			delete item["src"];
 
 			// stringify the remaining object, which contains just the object
 			// values that should be logged
